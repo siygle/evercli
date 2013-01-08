@@ -8,6 +8,7 @@
   ],
   "author": "Ferrari Lee",
   "main": "bin/evercli",
+  "bin": "./bin/evercli",
   "dependencies": {
     "cli-color": "~0.2.1",
     "optimist": "~0.3.5",
@@ -16,5 +17,7 @@
   },
   "devDependencies": {
     "mocha": "*"
-  }
+  },
+  "engine": "~0.8",
+  "perferGlobal": true
 }
