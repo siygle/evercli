@@ -1,17 +1,31 @@
 #!/usr/bin/env node
 
+// nodejs core module
 var fs = require('fs');
+var path = require('path');
+
+// third-party module
 var clc = require('cli-color');
+var PZ = require('promzard').PromZard;
 
 // check config file exist or not
-const CONFIG = '~/.evercliConf';
+const CONFIG = 'evercli.json';
 var check = fs.existsSync(CONFIG);
 if (!check) {
-  cli.red('Missing config file, Use --config to setup');
-}
+  console.log(clc.red('Missing config file, setup evernote first!'));
 
-// setup basic cli of evercli                
-var cli = require('optimist')
+  var input = path.resolve(__dirname, '..', 'lib/config.js');
+  var ctx = {};
+  var pz = new PZ(input, ctx);
+
+  pz.on('data', function(data) {
+    fs.writeFile(CONFIG, JSON.stringify(data, null, 2), function(err) {
+      if (err) console.log(clc.red('Create config file at ' + CONFIG + ' failed!'));
+    });
+  });
+} else {
+  // setup basic cli of evercli                
+  var cli = require('optimist')
   .usage('Usage: $0 [options] [values]')
   .alias('c', 'create')
   .describe('c', 'Create a note')
@@ -21,14 +35,14 @@ var cli = require('optimist')
   .describe('s', 'Search your note')
   .argv;
 
-//var evercli = require('../src/evercli');
-
-if (cli.create) {
-  console.log(clc.blue('create'));
-} else if (cli.list) {
-  console.log(clc.green('list'));
-} else if (cli.search) {
-  console.log(clc.yellow('search'));
-} else {
-  console.log(clc.red('What do you want to do?'));
+  var evercli = require('../lib/evercli');
+  if (cli.create) {
+    console.log(clc.blue('create'));
+  } else if (cli.list) {
+    console.log(clc.green('list'));
+  } else if (cli.search) {
+    console.log(clc.yellow('search'));
+  } else {
+    console.log(clc.red('What do you want to do?'));
+  }
 }

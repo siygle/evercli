@@ -13,7 +13,8 @@
     "cli-color": "~0.2.1",
     "optimist": "~0.3.5",
     "passport": "~0.1.15",
-    "passport-evernote": "~0.1.1"
+    "passport-evernote": "~0.1.1",
+    "promzard": "~0.2.0"
   },
   "devDependencies": {
     "mocha": "*"
