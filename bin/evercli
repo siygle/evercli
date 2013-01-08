@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var clc = require('cli-color');
+
+// check config file exist or not
+const CONFIG = '~/.evercliConf';
+var check = fs.existsSync(CONFIG);
+if (!check) {
+  cli.red('Missing config file, Use --config to setup');
+}
+
+// setup basic cli of evercli                
+var cli = require('optimist')
+  .usage('Usage: $0 [options] [values]')
+  .alias('c', 'create')
+  .describe('c', 'Create a note')
+  .alias('l', 'list')
+  .describe('l', 'List your note')
+  .alias('s', 'search')
+  .describe('s', 'Search your note')
+  .argv;
+
+//var evercli = require('../src/evercli');
+
+if (cli.create) {
+  console.log(clc.blue('create'));
+} else if (cli.list) {
+  console.log(clc.green('list'));
+} else if (cli.search) {
+  console.log(clc.yellow('search'));
+} else {
+  console.log(clc.red('What do you want to do?'));
+}

@@ -1,0 +1,20 @@
+{
+  "name": "evercli",
+  "version": "0.0.1",
+  "description": "A simple cli for evernote",
+  "keywords": [
+    "evernote",
+    "console"
+  ],
+  "author": "Ferrari Lee",
+  "main": "bin/evercli",
+  "dependencies": {
+    "cli-color": "~0.2.1",
+    "optimist": "~0.3.5",
+    "passport": "~0.1.15",
+    "passport-evernote": "~0.1.1"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
