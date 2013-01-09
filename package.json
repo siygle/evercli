@@ -14,7 +14,9 @@
     "optimist": "~0.3.5",
     "passport": "~0.1.15",
     "passport-evernote": "~0.1.1",
-    "promzard": "~0.2.0"
+    "promzard": "~0.2.0",
+    "thrift": "~0.7.0",
+    "async": "~0.1.22"
   },
   "devDependencies": {
     "mocha": "*"
