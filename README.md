@@ -8,6 +8,14 @@ It's a simple CLI tool which let you could use and manage evernote easily on ter
 
 If you're first time use the tool, it'll ask you input evernote developer token first, please go [evernote](http://dev.evernote.com/) and apply one first. (Note: They provide develop and production token, apply production if you want to use in real environment)
 
+### create
+
+> evercli create [options] {content}
+Another usage:
+> echo {content} | evercli create [options]
+
+Create a new note including given content
+
 ### search
 
 > evercli search {keyword}
@@ -18,3 +26,4 @@ Search your notes which contains specific keyword.
 
 * evernote thrift from [cloudsnap](https://github.com/cloudsnap/evernode)
 * bugfix version under thrift 0.9 and evernote api 1.23 by [berryboy](https://github.com/berryboy/evernode)
+* Arch and api calling example by [everest-js](https://github.com/berryboy/everest-js)
