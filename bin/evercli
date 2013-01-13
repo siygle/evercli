@@ -33,12 +33,8 @@ if (!check) {
   .usage('Usage: $0 [options] [values]')
   .alias('c', 'create')
   .describe('c', 'Create a note')
-  .alias('l', 'list')
-  .describe('l', 'List your note')
   .alias('s', 'search')
   .describe('s', 'Search your note')
-  .alias('t', 'title')
-  .alias('v', 'value')
   .argv;
 
   if (cli.create) {
@@ -50,13 +46,11 @@ if (!check) {
     });
     read.on('line', function(input) {
       read.close();
-      var title = cli.title || 'EVERCLI-' + new Date();
+      var title = cli.create || 'EVERCLI-' + new Date();
       evercli.create(title, input);
     });
-  } else if (cli.list) {
-    console.log(clc.green('list'));
   } else if (cli.search) {
-    evercli.search(cli.value);
+    evercli.search(cli.search);
   } else {
     console.log(clc.red('What do you want to do?'));
   }
